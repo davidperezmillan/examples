@@ -1,1 +1,0 @@
-Pequeña parte de material
