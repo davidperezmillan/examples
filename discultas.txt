@@ -1,0 +1,25 @@
+Buenas
+
+Lo primero de todo me gustaría pedir disculpas al equipo de desarrollo opv por mi comportamiento de esta mañana.
+
+Reconozco que he elevado excesivamente la voz, y que mis comentarios no han sido muy acertados. Pudiendo incluso llegar a resultar hirientes 
+
+El motivo de mi alteración no obstante sí que es licito, puesto que nos encontramos a una jornada de subir a producción la versión 283 (que recuerdo que empezamos a subir a prod el lunes a primera hora), y ayer tarde se subió código que no compilaba a las ramas de belgica y de multifilial.
+
+Nuestro sistema de generación de versiones (también considerado sistema de integración continua) Jenkins comprueba como primer paso que el código compila, y en caso contrario no se procederá con ninguna de las acciones.
+
+Lo que conlleva que anoche, pese a que hemos conseguido convencer al equipo de indus de que nos programasen un despliegue nocturno en pre este no pudo realizarse para Belux y multi.
+
+Con el correspondiente efecto secundario de que se debe regenerar y solicitar el despliegue manual, que es bastante lento, y afecta a la estabilidad de todo el entorno durante el proceso. 
+
+Es decir que durante toda la mañana los indus de be y mul no podrán probar el ultimo código, ni tampoco hacer correctamente las pruebas del código anterior. Pudiendo incluso generarse reabiertas innecesarias derivadas de estas pruebas con el entorno inestable.
+
+Seguramente algunos dirán que parte del problema es mío, ya que yo me había auto asignado la función de revisar si el código compila antes de marcharme, y en caso de encontrar problemas, solventarlos para esa generación y avisar a los interesados para que solventen correctamente el codigo para la siguiente generación.
+
+Ruego os pongáis en contacto con vuestros OTs para coordinaros con ellos las acciones a realizar durante el día de hoy
+
+Y que me aviséis antes de subir código al repositorio, para que os confirme si se puede subir en ese momento o debéis esperar a que termine la generación en curso.
+
+Gracias por adelantado por vuestra colaboración y una vez más disculpad si alguien se ha sentido personalmente atacado esta mañana
+
+Tratare que no vuelva a repetirse.
