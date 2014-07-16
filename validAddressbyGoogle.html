@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Google|Address Validation</title>
+<link rel="stylesheet"	href="<%=request.getContextPath()%>/css/style.css" type="text/css" />
+<!-- <script type="text/javascript"	src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script> -->
+<script
+	src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+<script type="text/javascript">
+	function initialize() {
+		var input = document.getElementById('address');
+		var autocomplete = new google.maps.places.Autocomplete(input);
+	}
+
+	function validate() {
+    document.getElementById('resultados').innerHTML = "";
+		geocoder = new google.maps.Geocoder();
+		var address = document.getElementById('address').value;
+		geocoder.geocode({
+			'address' : address,
+			'region' : 'es'
+		}, function(results, status) {
+			switch (status) {
+			case google.maps.GeocoderStatus.OK:
+				var texto = "";
+				for (i = 0; i < results.length; i++) {
+					console.dir(results[i]);
+					texto += results[i].formatted_address + "<br>";
+				}
+				document.getElementById('resultados').innerHTML = texto;
+				break;
+			case google.maps.GeocoderStatus.ZERO_RESULTS:
+				alert("No hay resultados")
+				break;
+			default:
+				alert("Error");
+			}
+		});
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<style>
+body {
+	font-family: ubuntu;
+}
+
+#address {
+	width: 300px;
+	height: 15px;
+	float: left;
+	margin: 10px;
+}
+
+#map_canvas {
+	width: 300px;
+	height: 300px;
+	margin: 10px;
+}
+
+#validate {
+	clear: both;
+}
+
+#results, #resultados {
+	margin-top: 10px;
+}
+</style>
+</head>
+<body>
+	<div>Google Address Validation Test</div>
+	<input type="text" id="address"></input>
+	<div id="results">
+		<input type="button" value="Validate" onClick="validate()"></input>
+	</div>
+
+	<div id="resultados"></div>
+</body>
+</html>
