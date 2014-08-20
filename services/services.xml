@@ -1,0 +1,19 @@
+<services>
+	<service>
+		<key>SANDBOX</key>
+		<subservices>
+			<subservice>
+				<key>default</key>
+				<className>com.sandbox.sandbox.services.ServiceSandboxEspa</className>
+			</subservice>
+			<subservice>
+				<key>ESPA</key>
+				<className>com.sandbox.sandbox.services.ServiceSandboxEspa	</className>
+			</subservice>
+			<subservice>
+				<key>ENGL</key>
+				<className>com.sandbox.sandbox.services.ServiceSandboxEngl</className>
+			</subservice>
+		</subservices>
+	</service>
+</services>
